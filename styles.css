@@ -12,6 +12,7 @@ body {
   max-width: 85%;
   width: 100%;
   color: var(--color-default);
+  background: #f0f0f0;;
 }
 
 hr {
@@ -135,13 +136,65 @@ hr {
   /* padding-top: 1rem; */
   color: var(--dark-gray);
 }
-.roles{
+.roles, .projects{
   display: flex;
   justify-content: space-between;
+
+  display: grid;
+  row-gap: 2.5rem;
 }
-.roles .role{
-  padding: 1rem;
+.role{
   margin: 1rem;
+  box-shadow: 0 0 5px rgba(33,33,33,.25);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  cursor: pointer;
+
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+.role:hover{
+  box-shadow: 2px 4px 5px rgba(33,33,33,.25);
+}
+.role:hover .role-img h2{
+  font-size: 1.5rem;
+}
+.role:hover .role-img > img{
+  scale: 110%;
+}
+.role-desc{
+  padding: 1rem;
+  text-align: left;
+    word-break: break-all;
+}
+.role-img {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.role-img > img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: all 0.2s ease-in-out;
+}
+.role-img h2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,0.5);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  transition: all 0.2s ease-in-out;
 }
 .hero-heading .heading-inverted {
   color: var(--primary-color);
@@ -155,7 +208,7 @@ hr {
   font-size: 2.6rem;
   margin-bottom: 1.5rem;
 }
-.hero-heading .role{
+.hero-heading .summary-role{
   font-size: 2.2rem;
   color: var(--color-default);
 }
@@ -166,6 +219,9 @@ hr {
   margin: 2rem 0;
   border-radius: 1rem;
   text-align: center;
+
+  display: grid;
+    place-items: center;
 }
 
 .section h1 {
@@ -245,5 +301,28 @@ hr {
 
   .link-primary {
     display: block;
+  }
+}
+
+/* Break Points */
+
+/* For Medium Screens (From phones to Tablets) */
+@media screen and (min-width: 768px){
+  .roles, .projects{
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+} 
+
+/* Large Screens */
+@media screen and (min-width: 1120px){
+  .roles, .projects{
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .role{
+    width: 350px;
   }
 }
