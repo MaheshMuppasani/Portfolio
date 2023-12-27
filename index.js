@@ -111,12 +111,12 @@ const renderProjects = function (roles) {
             <div class="overlay">
                 <h2>${role.name}</h2>
                 <div class="options">
-                    <button onclick="openLink('${role.link}')">
+                    <a href="${role.link}" title="Github Repository">
                         <img src="./images/github.png" />
-                    </button>
-                    <button onclick="openLink('${role.link}')">
+                    </a>
+                    <a href="${role.link}" target="_blank" title="Open in new tab">
                         <img src="./images/newTab.png" />
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
