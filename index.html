@@ -5,8 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mahesh Muppasani | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet" />
-  <script src="./index.js" defer></script>
+  <script src="./index.js" defer type="module"></script>
 </head>
 
 <body>
@@ -14,30 +17,47 @@
     <div class="nav-brand"><a href="/">Mahesh Muppasani </a></div>
     <ul class="list-non-bullet nav-pills">
       <li class="list-item-inline">
-        <a class="link link-active" href="/">Home</a>
+        <a class="link link-active" href="#home">Home</a>
       </li>
       <li class="list-item-inline">
-        <a class="link" href="projects.html ">Projects</a>
+        <a class="link" href="#about">About</a>
+        <!-- <a class="link" href="projects.html ">About</a> -->
       </li>
       <li class="list-item-inline">
-        <a class="link" href="blogs.html ">Blogs</a>
+        <a class="link" href="#skills">Skills</a>
       </li>
+      <li class="list-item-inline">
+        <a class="link" href="#projects">Projects</a>
+      </li>
+      <!-- <li class="list-item-inline">
+        <a class="link" href="#experience">Experience</a>
+      </li> -->
+      <li class="list-item-inline">
+        <a class="link" href="#blogs">Blogs</a>
+        <!-- <a class="link" href="blogs.html ">Blogs</a> -->
+      </li>
+      <!-- <li class="list-item-inline">
+        <a class="link" href="#blogs">Contact</a>
+      </li> -->
     </ul>
   </nav>
 
-  <section class="hero introduction">
-    <div>
-      <div class="hero-heading">
-        <h2 class="greeting">Welcome!</h2> 
-        <h1 class="name">I'm <span class="heading-inverted">Mahesh Muppasani</span></h1>
-        <h1 class="summary-role"> - Web Developer</h1>
+  <section class="hero introduction" id="home">
+    <div class="container container-center intro-container">
+      <div>
+        <img class="hero-img" src="images/mahesh.jpeg" />
+      </div>
+      <div class="greeting-container">
+        <div class="hero-heading">
+          <h2 class="greeting">Hello There! I'm</h2> 
+          <h1 class="name"><span class="heading-inverted">Mahesh Muppasani</span></h1>
+          <h1 class="summary-role">Web Developer</h1>
+        </div>
       </div>
     </div>
-    <div>
-      <img class="hero-img" src="images/hero.svg" />
-    </div>
+    
   </section>
-  <section class="section">
+  <section class="section" id="about">
     <h1>About Me</h1>
       <div class="roles">
         <!-- <div class="role">
@@ -57,20 +77,32 @@
         </div> -->
       </div>
   </section>
-  <section class="section ow">
+  <section class="section ow" id="skills">
     <div class="container container-center">
       <h1>Skills</h1>
-      <p>
-        I'm familiar with HTML, CSS, Bootstrap, JavaScript, React JS, Material UI, Node JS, Express server, MongoDB,
-        SQL, GraphQL
-        C, C++, Java, Python, C#
-        .
-      </p>
+      <p>I'm familiar with</p>
+      <div class="skill_container">
+        <img src="./images/tech_stack/C.svg.png" title="C Language" />
+        <img src="./images/tech_stack/cpp_logo.png" title="C++ Language" />
+        <img src="./images/tech_stack/Python-logo-notext.svg.png" title="Python" />
+        <img src="./images/tech_stack/HTML5.png" title="HTML" />
+        <img src="./images/tech_stack/CSS3.png" title="CSS" />
+        <img src="./images/tech_stack/JavaScript-logo.png" title="JavaScript" />
+        <img src="./images/tech_stack/typescript-2.svg" title="TypeScript" />
+        <img src="./images/tech_stack/react-1-logo-png-transparent.png" title="React JS" />
+        <img src="./images/tech_stack/Mui-logo.png" title="Material UI" />
+        <img src="./images/tech_stack/Bootstrap_logo.svg.png" title="Bootstrap" />
+        <img src="./images/tech_stack/redux-logo.png" title="Redux" />
+        <img src="./images/tech_stack/Vue.js_Logo_2.svg.png" title="Vue JS" />
+        <img src="./images/tech_stack/node-js-icon-1901x2048-mk1e13df.png" title="Node JS" />
+        <img src="./images/tech_stack/MongoDB-Emblem.jpg" title="MongoDB" />
+        <img src="./images/tech_stack/express.png" title="Express JS" />
+        <img src="./images/tech_stack/mysql-6.svg" title="MySQL" />
+        <img src="./images/tech_stack/1667px-Figma-logo.svg.png" title="Figma" />
+      </div>
     </div>
   </section>
-
-
-  <section class="section">
+  <!-- <section class="section">
     <div class="container container-center">
       <h1>Tools</h1>
       <p>
@@ -80,14 +112,29 @@
       </p>
 
     </div>
-  </section>
-  <section class="section ow">
+  </section> -->
+  <section class="section ow" id="projects">
     <h1>Projects</h1>
     <div class="projects">      
     </div>
   </section>
-
-  <section class="section ">
+  <!-- <section class="section" id="experience">
+    <div class="container container-center">
+      <h1>Experience</h1>
+      <div>
+        <div class="pin"></div>
+        <div class="phase">
+          <div class="role-tenure">
+            <span>2022</span>
+            <span>Education</span>
+          </div>
+          <div class="role-name">Software Engineer</div>
+          <div class="role-desc"></div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <section class="section" id="blogs">
     <div class="container container-center">
       <h1>Blogs</h1>
       <p>

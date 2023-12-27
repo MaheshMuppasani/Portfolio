@@ -1,18 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 :root {
-  --primary-color: #5865F2;
+  --header-nav-bg: rgba(51, 60, 158, 0.827);
+  --primary-color: #343d9f;
   --off-white: #f3f4f6;
-  --dark-gray: #6b7280;
+  --dark-gray: #626874;
+  --nav-link-color: #fff;
   --color-default: rgb(49 43 43);
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0px auto;
   max-width: 85%;
   width: 100%;
   color: var(--color-default);
-  background: #f0f0f0;;
+  background: #ededff;
 }
 
 hr {
@@ -41,7 +43,6 @@ hr {
   box-sizing: border-box;
   text-decoration: none;
   padding: 0.5rem 1rem;
-
 }
 
 .link-primary {
@@ -79,19 +80,27 @@ hr {
 /** navigation **/
 
 .navigation {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--header-nav-bg);
+  color: var(--nav-link-color);
   padding: 1rem;
-  margin: 0 0 3rem 0;
   border-bottom-left-radius: 1rem;
   display: flex;
   justify-content: space-between;
+  position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
 }
-
+html{
+  scroll-behavior: smooth;
+  scroll-padding: 8rem;
+}
 .navigation .nav-brand {
   font-weight: bold;
   display: flex;
   align-items: center;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
 }
 
 .nav-brand a {
@@ -105,7 +114,8 @@ hr {
 }
 
 .navigation .link {
-  color: white;
+  color: var(--nav-link-color);
+  border-radius: 10px;
 }
 
 .navigation .link-active {
@@ -116,12 +126,9 @@ hr {
 
 .hero {
   padding: 2rem;
-  padding-top: 5rem;
 }
 .introduction{
-  display: flex;
-  justify-content: space-around;
-  margin: 0 0 3rem 0;
+  margin: 3rem 0;
 }
 
 .hero .hero-img {
@@ -129,11 +136,10 @@ hr {
   width: 350px;
   display: block;
   margin: auto;
+  border-radius: 100px;
 }
 
 .hero-heading {
-  /* text-align: center; */
-  /* padding-top: 1rem; */
   color: var(--dark-gray);
 }
 .roles, .projects{
@@ -145,28 +151,37 @@ hr {
 }
 .role{
   margin: 1rem;
-  box-shadow: 0 0 5px rgba(33,33,33,.25);
+  box-shadow: 0 0 5px rgba(33, 33, 33, 0.25);
   border-radius: 10px;
   overflow: hidden;
-  width: 300px;
-  cursor: pointer;
-
+  width: auto;
   position: relative;
   transition: all 0.2s ease-in-out;
 }
 .role:hover{
   box-shadow: 2px 4px 5px rgba(33,33,33,.25);
 }
-.role:hover .role-img h2{
-  font-size: 1.5rem;
+
+.role:hover .overlay > h2{
+  top: -100%;
+}
+.role:hover .role-overlay > h2{
+  font-size: 1.2rem;
+}
+.role:hover .options{
+  top: 40%;
 }
 .role:hover .role-img > img{
   scale: 110%;
 }
 .role-desc{
   padding: 1rem;
-  text-align: left;
-    word-break: break-all;
+  text-align: justify;
+  word-break: break-word;
+  color: var(--dark-gray);
+  line-height: 22px;
+  word-spacing: 1px;
+  font-size: 0.8rem;
 }
 .role-img {
   position: relative;
@@ -179,7 +194,7 @@ hr {
   object-fit: cover;
   transition: all 0.2s ease-in-out;
 }
-.role-img h2{
+.role-img .overlay, .role-overlay{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -191,32 +206,63 @@ hr {
   background-color: rgba(0,0,0,0.5);
   margin: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  transition: all 0.3s ease-in-out;
+}
+.overlay .options{
+  position: absolute;
+  top: 100%;
   transition: all 0.2s ease-in-out;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.options button{
+  width: 50px;
+  height: 50px;
+  padding: 7px;
+  background: rgba(196, 196, 196, 0.6);
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.options button:active{
+  background: rgba(196, 196, 196, 0.8);
+}
+.options img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.role-img h2{
+  font-size: inherit;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  top: 0;
 }
 .hero-heading .heading-inverted {
   color: var(--primary-color);
 }
 
 .hero-heading .greeting{
-  font-size: 2rem;
-  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
 }
 .hero-heading .name{
-  font-size: 2.6rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.4rem;
 }
 .hero-heading .summary-role{
-  font-size: 2.2rem;
-  color: var(--color-default);
+  font-size: 2rem;
+  color: rgb(37, 116, 173);
 }
 /** sections **/
 
 .section {
   padding: 2rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
   border-radius: 1rem;
   text-align: center;
 
@@ -228,18 +274,15 @@ hr {
   text-align: center;
 }
 
-.ow {
-  background-color: var(--off-white);
-}
-
 /** footers **/
 
 .footer {
-  background-color: var(--primary-color);
+  background-color: var(--header-nav-bg);
   padding: 2rem 1rem;
   text-align: center;
   color: white;
   border-top-right-radius: 1rem;
+  backdrop-filter: blur(10px);
 }
 
 .footer .link {
@@ -284,6 +327,48 @@ hr {
   padding-bottom: 6rem;
 }
 
+.intro-container{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+}
+.greeting-container{
+  margin: auto;
+}
+.skill_container{
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 1rem;
+  margin: 1.6rem 0 0 0;
+}
+
+.skill_container > img{
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.tech-container{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  grid-gap: 0.2rem;
+  padding: 0 16px;
+  margin: 16px 0 0 0;
+}
+.tech-chip{
+  display: flex;
+  border: 1px solid grey;
+  padding: 4px 9px 4px 6px;
+  border-radius: 15px;
+}
+.tech-chip > img{
+  height: 1rem;
+  width: 1rem;
+  object-fit: contain;
+  margin: 0 3px;
+}
 @media (max-width: 900px) {
   body {
     max-width: 95%;
