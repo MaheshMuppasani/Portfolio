@@ -26,6 +26,7 @@ const projects = [
         description: 'Introducing a sleek and intuitive personal calendar application crafted with React.js, JavaScript, and Bootstrap, inspired by the user-friendly design of Microsoft Calendar. This modern, clean application simplifies event organization, and reminder setting. It combines advanced web technologies with a design reminiscent of Microsoft Calendar, enhancing scheduling experience.',
         image: './images/react_calender.png',
         link: 'https://personal-calender.vercel.app/',
+        repo_link: 'https://github.com/MaheshMuppasani/react-personal-calender', 
         tech_used: [
             {
                 name: 'ReactJS',
@@ -46,6 +47,7 @@ const projects = [
         description: "Dive into the world of strategic gaming with my Vue.JS 2048 Game. This project showcases my expertise in Vue.JS, HTML, and CSS. Players can enjoy a personalized experience by selecting board sizes, themes, and the game automatically saves scores for seamless progression. It's a testament to my front-end skills, offering both entertainment and a smooth user interface.",
         image: './images/game_2048.png',
         link: 'https://game-2048-vert.vercel.app/',
+        repo_link: 'https://github.com/MaheshMuppasani/vueJS-first-project/',
         tech_used: [
             {
                 name: 'VueJS',
@@ -66,6 +68,7 @@ const projects = [
         description: "The Speedometer UI is a dynamic, visually appealing project using JavaScript, HTML, and CSS to bring the thrill of high-performance driving to your screen. It features both analog and digital displays, responsive buttons, and a seamless blend of aesthetics and interactivity, showcasing the designer's expertise in creating engaging web applications.",
         image: './images/accelerometer.png',
         link: 'https://accelerometer.vercel.app/',
+        repo_link: 'https://github.com/MaheshMuppasani/Mahesh-Muppasani',
         tech_used: [
             {
                 name: 'JavaScript',
@@ -81,10 +84,31 @@ const projects = [
             }
         ]
     },
+    {
+        name: 'Portfolio',
+        description: "The portfolio is developed from scratch using vanilla JS covering all the essential concepts with some inspiration from the designs on Dribble. The website will be transitioned to a JS framework such as React.JS or Angular in future. This will be fun terraforming an existing JS application with a JS framework and lot of scope to learn new things under the hood.",
+        image: './images/portfolio-thumb.png',
+        link: 'https://maheshmuppasani.vercel.app/',
+        tech_used: [
+            {
+                name: 'JavaScript',
+                image: './images/tech_stack/JavaScript-logo.png'
+            },
+            {
+                name: 'HTML',
+                image: './images/tech_stack/HTML5.png'
+            },
+            {
+                name: 'CSS',
+                image: './images/tech_stack/CSS3.png',
+            }
+        ]
+    }
 ]
 
 const role_container = document.getElementsByClassName('roles')[0];
 const project_container = document.getElementsByClassName('projects')[0];
+const exp_container = document.getElementsByClassName('exp-container')[0];
 
 const renderRoles = function (roles) {
     return roles.map(role => {
@@ -111,7 +135,7 @@ const renderProjects = function (roles) {
             <div class="overlay">
                 <h2>${role.name}</h2>
                 <div class="options">
-                    <a href="${role.link}" title="Github Repository">
+                    <a href="${role.repo_link}" target="_blank" title="Github Repository">
                         <img src="./images/github.png" />
                     </a>
                     <a href="${role.link}" target="_blank" title="Open in new tab">
@@ -134,7 +158,58 @@ const renderTech = function (tech){
     })
 }
 
+
+const experience = [
+    {
+        type: 'edu',
+        year: 2023,
+        title: 'Masters in Information Systems',
+        location: 'CMU, Mt. Pleasant, MI, USA',
+        desc: "I'm pursuing my master's in Information systems at Central Michigan University aligning my interests in business systems, data analytics, and database administration. "
+    },
+    {
+        type: 'work',
+        year: 2021,
+        title: 'Web Developer',
+        location: 'ACS Solutions, Hyderabad, India',
+        desc: "As a web developer I worked on various real time web applications such as Nutrascriptives Direct and Fulfillment",
+    },
+    {
+        type: 'work',
+        year: 2020,
+        title: 'Associate Web Developer',
+        location: 'ACS Solutions, Hyderabad, India',
+        desc: "As an associate web developer I worked on various real time web applications such as Nutrascriptives Direct and Fulfillment",
+    },
+    {
+        type: 'edu',
+        year: 2016,
+        title: 'Bachelors in Electronics and Communication Eng',
+        location: 'K L University, Vijayawada, India',
+        desc: 'I completed my bachelors from 2016-2020 at KLUniversity in Electronics and Communication Engineering and got placed in ACS Solutions as a Web developer.'
+    }
+]
+
+function renderExperience(experiences = []){
+    return experiences.map((exp, i) => {
+        return `<div class="phase">
+            <div class="phase-inner">
+            <div class="role-tenure">
+                <span class="year">${exp.year + (!i ? ' - present':'')}</span>
+                <span class="material-symbols-outlined role-icon">${exp.type==='edu' ? 'school' : 'work'}</span>
+            </div>
+            <div class="job-desc">
+                <h3 class="role-name">${exp.title}</h3>
+                <div>${exp.location}</div>
+                <p>${exp.desc}</p>
+            </div>
+            </div>
+        </div>`
+    })
+}
+
 window.onload = function() {
     role_container.innerHTML = renderRoles(roles).join('');
     project_container.innerHTML = renderProjects(projects).join('');
+    exp_container.innerHTML = renderExperience(experience).join('');
 }
