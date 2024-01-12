@@ -17,6 +17,7 @@
   --overlay-active-option: rgba(196, 196, 196, 0.8);
   --hero-roles-color: rgb(37, 116, 173);
   --exp-phase-light-color: rgb(224, 224, 224);
+  --exp-pointer-width: 10px;
 }
 
 body {
@@ -189,8 +190,7 @@ html{
   padding: 1rem;
   text-align: justify;
   word-break: break-word;
-  /* color: var(--dark-gray); */
-  line-height: 22px;
+  line-height: 20px;
   word-spacing: 1px;
   font-size: 0.8rem;
 }
@@ -354,6 +354,7 @@ html{
   flex-wrap: wrap;
   grid-gap: 1rem;
   margin: 2rem 0 0 0;
+  justify-content: center;
 }
 
 .skill_container > img{
@@ -467,11 +468,11 @@ html{
   content: "";
   position: absolute;
   right: 100%;
-  top: calc(25px - 10px);
+  top: calc(var(--exp-icon-width) / 2 - var(--exp-pointer-width));
   height: 0;
   width: 0;
-  border: 10px solid transparent;
-  border-right: 10px solid var(--overlay-option-border);
+  border: var(--exp-pointer-width) solid transparent;
+  border-right: var(--exp-pointer-width) solid var(--overlay-option-border);
 }
 .job-desc .role-name{
   margin: unset;
@@ -513,6 +514,7 @@ html{
   align-items: stretch;
   gap: 0.5rem;
   margin-top: 80px;
+  flex-wrap: wrap;
 }
 .quick-links a{
   display: flex;
@@ -579,15 +581,34 @@ html{
     transform: rotate(0deg);
   }
 }
+/* Break Points */
+
+/* For Medium Screens (From phones to Tablets) */
+@media screen and (max-width: 1024px) {
+  .hero-img{
+    width: 250px;
+  }
+  .greeting-container{
+    font-size: 0.8em;
+  }
+  .hero-heading .name{
+    font-size: 2rem;
+  }
+  .hero-heading .summary-role{
+    font-size: 1.6rem;
+  }
+  .list-item-inline {
+    display: inline;
+    padding: 0rem;
+  }
+  .navigation{
+    font-size: 0.8em;
+  }
+}
 @media (max-width: 900px) {
   body {
     max-width: 95%;
     width: 100%;
-  }
-
-  .list-item-inline {
-    display: inline;
-    padding: 0rem;
   }
 
   .container-center {
@@ -598,10 +619,92 @@ html{
     display: block;
   }
 }
-
-/* Break Points */
-
-/* For Medium Screens (From phones to Tablets) */
+@media screen and (max-width: 767px) {
+  :root{
+    --exp-icon-size: 20px;
+    --exp-pointer-width: 6px;
+  }
+  html{
+    font-size: 14px;
+  }
+  .hero-img{
+    width: 200px;
+  }
+  .introduction{
+    margin: 1rem 0;
+  }
+  .greeting-container{
+    margin-top: 2rem;
+  }
+  .intro-container{
+    flex-direction: column;
+  }
+  .exp-container::before{
+    left: 0;
+  }
+  .exp-container .role-tenure{
+    left: calc(-1 * var(--exp-icon-width) / 2);
+  }
+  .phase-inner{
+    width: auto;
+    margin: unset;
+    padding: 0.5rem 0 0.5rem 2.5rem;
+  }
+  .exp-container .phase:nth-child(even) .phase-inner{
+    padding: 0.5rem 0 0.5rem 2.5rem;
+  }
+  .exp-container .phase:nth-child(even) .role-tenure{
+    left: calc(-1 * var(--exp-icon-width) / 2);
+  }
+  .exp-container .phase .role-tenure .year{
+    display: none;
+  }
+  .exp-container .phase:nth-child(even) .job-desc::after{
+    left: unset;
+    right: 100%;
+    transform: unset;
+  }
+  .navigation .nav-pills{
+    display: none;
+  }
+  .contact-form{
+    width: 100%;
+  }
+  section.contact{
+    display: block;
+  }
+  .role-img{
+    height: 160px;
+  }
+  .hero-heading .name{
+    font-size: 1.6rem;
+  }
+  .hero-heading .summary-role{
+    font-size: 1.4rem;
+  }
+  .quick-links{
+    margin-top: 35px;
+  }
+  .hero-heading .greeting{
+    font-size: 1rem;
+  }
+  .section{
+    padding: 1rem;
+  }
+  .skill_container > img{
+    width: 55px;
+    height: 55px;
+  }
+  .roles, .projects{
+    row-gap: 2rem;
+  }
+  .exp-container{
+    margin: 2rem 0 0 0;
+  }
+  .job-desc{
+    padding: 1rem;
+  }
+}
 @media screen and (min-width: 768px){
   .roles, .projects{
     grid-template-columns: repeat(2, 1fr);

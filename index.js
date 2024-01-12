@@ -89,6 +89,7 @@ const projects = [
         description: "The portfolio is developed from scratch using vanilla JS covering all the essential concepts with some inspiration from the designs on Dribble. The website will be transitioned to a JS framework such as React.JS or Angular in future. This will be fun terraforming an existing JS application with a JS framework and lot of scope to learn new things under the hood.",
         image: './images/portfolio-thumb.png',
         link: 'https://maheshmuppasani.vercel.app/',
+        repo_link: "https://github.com/MaheshMuppasani/Portfolio/",
         tech_used: [
             {
                 name: 'JavaScript',
