@@ -1,20 +1,36 @@
 // util function
-import reactJS from './images/tech_stack/react-1-logo-png-transparent.png';
+import frontEndDevImg from "./images/front-end-developer.png";
+import nodeJSDevImg from "./images/1_bc9pmTiyKR0WNPka2w3e0Q.png";
+import techEnthusiastImg from "./images/tech_enthusiast.png";
+import reactCalenderImg from './images/react_calender.png';
+import game2048Img from './images/game_2048.png';
+import accelerometerAppImg from './images/accelerometer.png';
+import reactJSImg from './images/tech_stack/react-1-logo-png-transparent.png';
+import bootstrapImg from './images/tech_stack/Bootstrap_logo.svg.png';
+import firebaseImg from './images/tech_stack/firebase.png';
+import JSImg from './images/tech_stack/JavaScript-logo.png';
+import vueJSImg from './images/tech_stack/Vue.js_Logo_2.svg.png';
+import htmlImg from './images/tech_stack/HTML5.png';
+import cssImg from './images/tech_stack/CSS3.png';
+import portfolioImg from './images/portfolio-thumb.png';
+import githubImg from "./images/github.png";
+import newTabImg from "./images/newTab.png";
+
 const roles = [
     {
-        image: "./images/front-end-developer.png",
+        image: frontEndDevImg,
         name: "Front-end developer",
         description: "I have had hands-on experience of 3+ years in front-end development. My expertise includes developing static websites with vanilla javascript, scalable websites using JavaScript frameworks such as ReactJS, Angular and VueJS, etc. I built websites with responsiveness, mobile first, SEO optimized and high performance. My work includes utilizing APIS using either RESTful or GraphQL architecture.",
         link: null,
     },
     {
-        image: "./images/1_bc9pmTiyKR0WNPka2w3e0Q.png",
+        image: nodeJSDevImg,
         name: "Node.js developer",
         description: "I began my back-end development journey 1 year after my front-end mastery. I understood the ecosystem and road map of backend development. I then started learnining Node.js to build simple yet scalable backend applications. I leveraged the advantage of using serverside capabilities of JavaScript with various backend technologies such as Express.js, Socket.io and Graphql Server, SQL and MongoDB.",
         link: null,
     },
     {
-        image: "./images/tech_enthusiast.png",
+        image: techEnthusiastImg,
         name: "Tech Enthusiast",
         description: "I always been a technology geek and feel something interesting about technology. I love the progress that our civilization achieved in software systems from the past few decades. Machine Learning and Artificial Intelligence were a revolution in technology. Apart from building web applications I love to follow other technologies such as developing GPTs with Open AI tools, Blogs on Web3 and Virtual Reality etc.",
         link: null,
@@ -25,84 +41,84 @@ const projects = [
     {
         name: 'Perosnal Calender',
         description: 'Introducing a sleek and intuitive personal calendar application crafted with React.js, JavaScript, and Bootstrap, inspired by the user-friendly design of Microsoft Calendar. This modern, clean application simplifies event organization, and reminder setting. It combines advanced web technologies with a design reminiscent of Microsoft Calendar, enhancing scheduling experience.',
-        image: './images/react_calender.png',
+        image: reactCalenderImg,
         link: 'https://personal-calender.vercel.app/',
         repo_link: 'https://github.com/MaheshMuppasani/react-personal-calender', 
         tech_used: [
             {
                 name: 'ReactJS',
-                image: reactJS,
+                image: reactJSImg,
             },
             {
                 name: 'Bootstrap',
-                image: './images/tech_stack/Bootstrap_logo.svg.png'
+                image: bootstrapImg,
             },
             {
                 name: 'Google Firebase',
-                image: './images/tech_stack/firebase.png',
+                image: firebaseImg,
             }
         ]
     },
     {
         name: '2048 Game',
         description: "Dive into the world of strategic gaming with my Vue.JS 2048 Game. This project showcases my expertise in Vue.JS, HTML, and CSS. Players can enjoy a personalized experience by selecting board sizes, themes, and the game automatically saves scores for seamless progression. It's a testament to my front-end skills, offering both entertainment and a smooth user interface.",
-        image: './images/game_2048.png',
+        image: game2048Img,
         link: 'https://game-2048-vert.vercel.app/',
         repo_link: 'https://github.com/MaheshMuppasani/vueJS-first-project/',
         tech_used: [
             {
                 name: 'VueJS',
-                image: './images/tech_stack/Vue.js_Logo_2.svg.png',
+                image: vueJSImg,
             },
             {
                 name: 'HTML',
-                image: './images/tech_stack/HTML5.png'
+                image: htmlImg
             },
             {
                 name: 'CSS',
-                image: './images/tech_stack/CSS3.png',
+                image: cssImg,
             }
         ]
     },
     {
         name: 'Vanilla JS - Accelerometer',
         description: "The Speedometer UI is a dynamic, visually appealing project using JavaScript, HTML, and CSS to bring the thrill of high-performance driving to your screen. It features both analog and digital displays, responsive buttons, and a seamless blend of aesthetics and interactivity, showcasing the designer's expertise in creating engaging web applications.",
-        image: './images/accelerometer.png',
+        image: accelerometerAppImg,
         link: 'https://accelerometer.vercel.app/',
         repo_link: 'https://github.com/MaheshMuppasani/Mahesh-Muppasani',
         tech_used: [
             {
                 name: 'JavaScript',
-                image: './images/tech_stack/JavaScript-logo.png'
+                image: JSImg
             },
             {
                 name: 'HTML',
-                image: './images/tech_stack/HTML5.png'
+                image: htmlImg
             },
             {
                 name: 'CSS',
-                image: './images/tech_stack/CSS3.png',
+                image: cssImg,
             }
         ]
     },
     {
         name: 'Portfolio',
         description: "The portfolio is developed from scratch using vanilla JS covering all the essential concepts with some inspiration from the designs on Dribble. The website will be transitioned to a JS framework such as React.JS or Angular in future. This will be fun terraforming an existing JS application with a JS framework and lot of scope to learn new things under the hood.",
-        image: './images/portfolio-thumb.png',
+        image: portfolioImg,
         link: 'https://maheshmuppasani.vercel.app/',
         repo_link: "https://github.com/MaheshMuppasani/Portfolio/",
         tech_used: [
             {
                 name: 'JavaScript',
-                image: './images/tech_stack/JavaScript-logo.png'
+                image: JSImg
             },
             {
                 name: 'HTML',
-                image: './images/tech_stack/HTML5.png'
+                image: htmlImg
             },
             {
                 name: 'CSS',
-                image: './images/tech_stack/CSS3.png',
+                image: cssImg,
             }
         ]
     }
@@ -138,10 +154,10 @@ const renderProjects = function (roles) {
                 <h2>${role.name}</h2>
                 <div class="options">
                     <a href="${role.repo_link}" target="_blank" title="Github Repository">
-                        <img src="./images/github.png" />
+                        <img src=${githubImg} />
                     </a>
                     <a href="${role.link}" target="_blank" title="Open in new tab">
-                        <img src="./images/newTab.png" />
+                        <img src=${newTabImg} />
                     </a>
                 </div>
             </div>
