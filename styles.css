@@ -24,6 +24,7 @@
   --cards-transition-delay: 0.2s;
   --theme-change-button-bg: var(--body-bg);
   --success-text: #2ea02e;
+  --failed-text: red;
 }
 
 body {
@@ -638,8 +639,11 @@ button.theme .material-symbols-outlined{
 .contact-form-footer.submitted .form-message{
   display: flex;
 }
-.form-message{
+.form-message.success{
   color: var(--success-text);
+}
+.form-message.failed{
+  color: var(--failed-text);
 }
 .quick-links{
   display: flex;

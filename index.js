@@ -300,25 +300,29 @@ async function sendMessage(e){
     if (response.status === "success") {
         e.target.email.value = '';
         e.target.message.value = '';
+        return 1;
     } else {
         console.log('Error sending email');
     }
+    return 0;
 }
 
 const form = document.getElementsByClassName('contact-form')[0];
 const form_footer = document.getElementsByClassName('contact-form-footer')[0];
+const form_message = document.getElementsByClassName('form-message')[0];
 
 form.addEventListener('submit', async function(e) {
     e.preventDefault();
     form.submit.classList.add('sending');
     form.submit.setAttribute('disabled', true);
-    // await sendMessage(e);
-    setTimeout(() => {
-        form.submit.classList.remove('sending');
+    const message = await sendMessage(e);
+
+    form.submit.classList.remove('sending');
     form.submit.removeAttribute('disabled');
+    form_message.classList.add(message ? 'success' : 'failed');
+    form_message.innerHTML = message ? (`${'Email sent successfully! <span class="material-symbols-outlined">done</span>'}`) : (`${'Unable to send e-mail! <span class="material-symbols-outlined">error</span>'}`);
     form_footer.classList.add('submitted');
-    setTimeout(() => form_footer.classList.remove('submitted'), 2000)
-    }, 2000);
+    setTimeout(() => form_footer.classList.remove('submitted'), 2000);
     
     // display message sent on the button itself
     // or 
