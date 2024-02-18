@@ -214,3 +214,101 @@ window.onload = function() {
     project_container.innerHTML = renderProjects(projects).join('');
     exp_container.innerHTML = renderExperience(experience).join('');
 }
+
+let blockScroll = false, timeout = undefined;
+
+let navbar = document.getElementsByClassName('nav-pills')[0];
+navbar.addEventListener('click', function(e){
+    let current_active = document.getElementsByClassName('link-active')[0];
+    current_active.classList.remove('link-active');
+    if(e.target.className.includes('list-item-inline')){
+        e.target.children[0].classList.add('link-active')
+    } else{
+        e.target.classList.add('link-active')
+    }
+    blockScroll = true;
+    if(timeout){
+        clearTimeout(timeout)
+    }
+    timeout = setTimeout(() => {
+        blockScroll = false;
+    }, 1000)
+})
+const sections = document.getElementsByClassName('section');
+const links = Array.from(document.getElementsByClassName('link'));
+document.addEventListener('scroll', function(){
+    if(blockScroll) return
+    for(let section of sections){
+        let rect = section.getBoundingClientRect();
+        if(rect.top >= 0 && rect.top < window.innerHeight*0.6){
+            let activeLink = links.find(link => link.getAttribute('href').split('#')[1]==section.id);
+            if(activeLink){
+                let current_active = links.find(link => link.classList.contains('link-active'));
+                current_active.classList.remove('link-active');
+                activeLink.classList.add('link-active');
+            }
+            break;
+        }
+    }
+});
+const themeButton = document.getElementsByClassName('theme')[0];
+themeButton.addEventListener('click', function(){
+    themeButton.innerHTML = '';
+    if(document.body.classList.contains('dark')){
+        themeButton.innerHTML = '<span class="material-symbols-outlined">light_mode</span>';
+    } else {
+        themeButton.innerHTML = '<span class="material-symbols-outlined">dark_mode</span>';
+    }
+    document.body.classList.toggle('dark');
+
+})
+async function sendMessage(e){
+    const body = {
+        email: e.target.email.value,
+        message: e.target.message.value,
+    }
+    
+    const data = await fetch('https://send-email-server.vercel.app/send', {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body), // body data type must match "Content-Type" header
+    });
+    console.log(data);
+    const res = await data.text();
+    const response = JSON.parse(res);
+    if (response.status === "success") {
+        e.target.email.value = '';
+        e.target.message.value = '';
+    } else {
+        console.log('Error sending email');
+    }
+}
+
+const form = document.getElementsByClassName('contact-form')[0];
+const form_footer = document.getElementsByClassName('contact-form-footer')[0];
+
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    form.submit.classList.add('sending');
+    form.submit.setAttribute('disabled', true);
+    // await sendMessage(e);
+    setTimeout(() => {
+        form.submit.classList.remove('sending');
+    form.submit.removeAttribute('disabled');
+    form_footer.classList.add('submitted');
+    setTimeout(() => form_footer.classList.remove('submitted'), 2000)
+    }, 2000);
+    
+    // display message sent on the button itself
+    // or 
+    // Scrum master
+    // Python
+    // AWS cloud practitioner
+    // CBAP
+    // AZURE devops
+    
+})
