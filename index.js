@@ -1,4 +1,5 @@
 // util function
+import reactJS from './images/tech_stack/react-1-logo-png-transparent.png';
 const roles = [
     {
         image: "./images/front-end-developer.png",
@@ -30,7 +31,7 @@ const projects = [
         tech_used: [
             {
                 name: 'ReactJS',
-                image: './images/tech_stack/react-1-logo-png-transparent.png',
+                image: reactJS,
             },
             {
                 name: 'Bootstrap',
