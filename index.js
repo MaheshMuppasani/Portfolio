@@ -16,6 +16,7 @@ import portfolioImg from './images/portfolio-thumb.png';
 import githubImg from "./images/github.png";
 import newTabImg from "./images/newTab.png";
 
+
 const roles = [
     {
         image: frontEndDevImg,
@@ -210,38 +211,57 @@ const experience = [
 
 function renderExperience(experiences = []){
     return experiences.map((exp, i) => {
-        return `<div class="phase">
+        return `
+        <div class="phase">
             <div class="phase-inner">
-            <div class="role-tenure">
-                <span class="year">${exp.year + (!i ? ' - present':'')}</span>
-                <span class="material-symbols-outlined role-icon">${exp.type==='edu' ? 'school' : 'work'}</span>
-            </div>
-            <div class="job-desc">
-                <h3 class="role-name">${exp.title}</h3>
-                <div>${exp.location}</div>
-                <p>${exp.desc}</p>
-            </div>
+                <div class="role-tenure">
+                    <span class="year">${exp.year + (!i ? ' - present':'')}</span>
+                    <span class="material-symbols-outlined role-icon">${exp.type==='edu' ? 'school' : 'work'}</span>
+                </div>
+                <div class="job-desc">
+                    <h3 class="role-name">${exp.title}</h3>
+                    <div>${exp.location}</div>
+                    <p>${exp.desc}</p>
+                    <span class="year">${exp.year + (!i ? ' - present':'')}</span>
+                </div>
             </div>
         </div>`
     })
 }
 
+const sections = document.getElementsByClassName('section');
+const links = Array.from(document.getElementsByClassName('link'));
+
 window.onload = function() {
     role_container.innerHTML = renderRoles(roles).join('');
     project_container.innerHTML = renderProjects(projects).join('');
     exp_container.innerHTML = renderExperience(experience).join('');
+    syncIndicatorToSection(links.find(link => link.classList.contains('link-active')));
+    const theme = localStorage.getItem('theme');
+    
+    if(theme && theme==='dark'){
+        document.body.classList.add('dark');
+    } else{
+        document.body.classList.remove('dark');
+    }
+}
+
+window.onresize = function(){
+    syncIndicatorToSection(links.find(link => link.classList.contains('link-active')))
 }
 
 let blockScroll = false, timeout = undefined;
 
-let navbar = document.getElementsByClassName('nav-pills')[0];
+let navbar = document.getElementsByClassName('nav-btns')[0];
 navbar.addEventListener('click', function(e){
     let current_active = document.getElementsByClassName('link-active')[0];
     current_active.classList.remove('link-active');
     if(e.target.className.includes('list-item-inline')){
-        e.target.children[0].classList.add('link-active')
+        e.target.children[0].classList.add('link-active');
+        syncIndicatorToSection(e.target.children[0]);
     } else{
-        e.target.classList.add('link-active')
+        e.target.classList.add('link-active');
+        syncIndicatorToSection(e.target);
     }
     blockScroll = true;
     if(timeout){
@@ -251,10 +271,26 @@ navbar.addEventListener('click', function(e){
         blockScroll = false;
     }, 1000)
 })
-const sections = document.getElementsByClassName('section');
-const links = Array.from(document.getElementsByClassName('link'));
+
+const section_indicator = document.querySelector('.navigation .nav-btns .indicator');
+function syncIndicatorToSection(curr_active){
+    if(!curr_active) return;
+    const parentPos = curr_active?.parentNode?.parentNode?.getBoundingClientRect() || null; // returns nav-btns Ul or null.
+    const childPos = curr_active.getBoundingClientRect();
+    const relativePos = {};
+    relativePos.top    = childPos.top - parentPos.top;
+    relativePos.right  = childPos.right - parentPos.right;
+    relativePos.bottom = childPos.bottom - parentPos.bottom;
+    relativePos.left   = childPos.left - parentPos.left;
+
+    section_indicator.style.top = relativePos.top + 'px';
+    section_indicator.style.left = relativePos.left + 'px';
+    section_indicator.style.width = childPos.width + 'px';
+    section_indicator.style.height = childPos.height + 'px';
+}
+
 document.addEventListener('scroll', function(){
-    if(blockScroll) return
+    if(blockScroll) return;
     for(let section of sections){
         let rect = section.getBoundingClientRect();
         if(rect.top >= 0 && rect.top < window.innerHeight*0.6){
@@ -263,6 +299,7 @@ document.addEventListener('scroll', function(){
                 let current_active = links.find(link => link.classList.contains('link-active'));
                 current_active.classList.remove('link-active');
                 activeLink.classList.add('link-active');
+                syncIndicatorToSection(activeLink);
             }
             break;
         }
@@ -273,11 +310,12 @@ themeButton.addEventListener('click', function(){
     themeButton.innerHTML = '';
     if(document.body.classList.contains('dark')){
         themeButton.innerHTML = '<span class="material-symbols-outlined">light_mode</span>';
+        localStorage.setItem('theme', 'light');
     } else {
         themeButton.innerHTML = '<span class="material-symbols-outlined">dark_mode</span>';
+        localStorage.setItem('theme', 'dark');
     }
     document.body.classList.toggle('dark');
-
 })
 async function sendMessage(e){
     const body = {
@@ -285,7 +323,7 @@ async function sendMessage(e){
         message: e.target.message.value,
     }
     
-    const data = await fetch('https://send-email-server.vercel.app/send', {
+    const data = await fetch('http://localhost:3000/send', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

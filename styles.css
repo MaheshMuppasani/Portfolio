@@ -10,7 +10,7 @@
 
   --exp-icon-size: 30px;
   --exp-icon-padding: 10px;
-  --exp-year-width: 70px;
+  --exp-year-width: 135px;
   --exp-icon-width : calc((var(--exp-icon-size) + var(--exp-icon-padding)*2));
   --card-shadow: rgba(33, 33, 33, 0.25);
   --card-overlay-color: rgba(34, 34, 34, 0.5);
@@ -25,6 +25,15 @@
   --theme-change-button-bg: var(--body-bg);
   --success-text: #2ea02e;
   --failed-text: red;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul{
+  margin: revert;
+  margin-top: revert;
+  margin-bottom: revert;
+  font-size: revert;
+  font-weight: revert;
+  line-height: initial;
 }
 
 body {
@@ -138,9 +147,27 @@ html{
   color: inherit;
 }
 
-.navigation .nav-pills {
+.navigation .nav-btns {
   text-align: right;
   margin: 0.6rem 1rem;
+  position: relative;
+}
+.navigation .nav-btns .indicator{
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: white;
+  top: 0;
+  left: 0;
+  inset: 0;
+  z-index: -10;
+  transform: none;
+  transform-origin: 50% 50% 0px;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  /* background-color: rgb(38 38 38/var(--tw-bg-opacity)); */
+  background-color: rgba(236, 236, 236, 0.381);
+  transition: all 0.2s ease-out;
 }
 
 .navigation .link {
@@ -151,7 +178,6 @@ html{
 .navigation .link-active {
   /* font-weight: bold; */
   --tw-bg-opacity: 1;
-    background-color: rgba(244, 244, 244, 0.381);
     inset: 0;
     backdrop-filter: blur(10px);
 }
@@ -239,7 +265,7 @@ button.theme{
   display: flex;
   position: fixed;
   bottom: 50px;
-  right: 50px;
+  /* right: 50px; */
   z-index: 100;
   background: var(--theme-change-button-bg);
   color: inherit;
@@ -470,9 +496,17 @@ button.theme .material-symbols-outlined{
 }
 .exp-container .phase .role-tenure .year{
   width: var(--exp-year-width);
-  text-align: center;
   letter-spacing: 1px;
   font-size: 1rem;
+  text-align: right;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+}
+.job-desc > .year{
+  display: none;
+}
+.phase-inner .year{
+  color: var(--dark-gray);
 }
 .exp-container .phase .role-tenure .role-icon{
   display: inline-block;
@@ -491,6 +525,7 @@ button.theme .material-symbols-outlined{
 }
 .exp-container .phase:nth-child(even) .role-tenure .year{
   order: 2;
+  text-align: left;
 }
 
 .exp-container .phase:nth-child(even) .job-desc::after{
@@ -555,6 +590,9 @@ button.theme .material-symbols-outlined{
 .contact-form > input, .contact-form > textarea{
   font-size: 0.9rem;
   letter-spacing: 0.8px;
+}
+.contact-form > input::placeholder, .contact-form > textarea::placeholder{
+  opacity: 0.5;
 }
 .contact-form > input::placeholder, .contact-form > textarea::placeholder{
   color: var(--dark-gray);
@@ -674,9 +712,17 @@ button.theme .material-symbols-outlined{
 }
 .quick-links .material-symbols-outlined{
   position: relative;
-  transition: all 0.2s;
   font-size: 1.3rem;
   margin-left: 5px;
+}
+.quick-links a.socialmedia-dark img, .quick-links .material-symbols-outlined{
+  transition: all 0.2s;
+}
+.quick-links a.socialmedia-dark:hover > img{
+  transform: translateY(-3px);
+}
+.quick-links a.socialmedia-dark:active > img{
+  transform: translateY(-5px);
 }
 .quick-links a.contact-me{
   background: var(--color-default);
@@ -798,12 +844,15 @@ button.theme .material-symbols-outlined{
   .exp-container .phase .role-tenure .year{
     display: none;
   }
+  .exp-container .job-desc > .year{
+    display: initial;
+  }
   .exp-container .phase:nth-child(even) .job-desc::after{
     left: unset;
     right: 100%;
     transform: unset;
   }
-  .navigation .nav-pills{
+  .navigation .nav-btns{
     display: none;
   }
   .contact-form{
