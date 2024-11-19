@@ -21,19 +21,19 @@ const roles = [
     {
         image: frontEndDevImg,
         name: "Front-end developer",
-        description: "I have had hands-on experience of 3+ years in front-end development. My expertise includes developing static websites with vanilla javascript, scalable websites using JavaScript frameworks such as ReactJS, Angular and VueJS, etc. I built websites with responsiveness, mobile first, SEO optimized and high performance. My work includes utilizing APIS using either RESTful or GraphQL architecture.",
+        description: "I have had hands-on experience of 3.5 years in web development. My expertise includes developing dynamic websites with vanilla javascript, scalable and single-page applications using JavaScript frameworks such as ReactJS, Angular and VueJS. My abilities includes building applications with responsiveness, mobile first, SEO optimized and high performance. I also expertized in working with various APIS such as REST or GraphQL.",
         link: null,
     },
     {
         image: nodeJSDevImg,
         name: "Node.js developer",
-        description: "I began my back-end development journey 1 year after my front-end mastery. I understood the ecosystem and road map of backend development. I then started learnining Node.js to build simple yet scalable backend applications. I leveraged the advantage of using serverside capabilities of JavaScript with various backend technologies such as Express.js, Socket.io and Graphql Server, SQL and MongoDB.",
+        description: "I am well open to backend development as well with over 2 years of experience. I worked on  Node.js prpjects where I build simple yet scalable backend applications. I leveraged the advantage of using serverside capabilities of JavaScript with various backend technologies such as Express.js, Socket.io and Graphql Server, SQL and MongoDB.",
         link: null,
     },
     {
         image: techEnthusiastImg,
-        name: "Tech Enthusiast",
-        description: "I always been a technology geek and feel something interesting about technology. I love the progress that our civilization achieved in software systems from the past few decades. Machine Learning and Artificial Intelligence were a revolution in technology. Apart from building web applications I love to follow other technologies such as developing GPTs with Open AI tools, Blogs on Web3 and Virtual Reality etc.",
+        name: "DataBase Engineer",
+        description: "As a skilled database developer, I specialize in designing, developing, and optimizing robust database solutions that drive business success. With expertise in database architecture, query optimization, and data modeling, I deliver scalable and efficient systems tailored to meet diverse business needs. I have expertise working on SQL and NoSQL databases such as MySQL, PostgreSQL, MS SQL Server and MongoDB",
         link: null,
     },
 ];
