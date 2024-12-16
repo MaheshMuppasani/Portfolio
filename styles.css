@@ -10,7 +10,7 @@
 
   --exp-icon-size: 30px;
   --exp-icon-padding: 10px;
-  --exp-year-width: 135px;
+  --exp-year-width: 200px;
   --exp-icon-width : calc((var(--exp-icon-size) + var(--exp-icon-padding)*2));
   --card-shadow: rgba(33, 33, 33, 0.25);
   --card-overlay-color: rgba(34, 34, 34, 0.5);
@@ -498,10 +498,13 @@ button.theme .material-symbols-outlined{
 .exp-container .role-name{
   text-align: left;
 }
+.exp-container .role-site{
+  color: var(--dark-gray);
+}
 .exp-container .phase .role-tenure .year{
   width: var(--exp-year-width);
   letter-spacing: 1px;
-  font-size: 1rem;
+  font-size: 0.85rem;
   text-align: right;
   box-sizing: border-box;
   padding: 0 0.5rem;

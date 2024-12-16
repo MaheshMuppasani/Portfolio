@@ -12,6 +12,7 @@ import JSImg from './images/tech_stack/JavaScript-logo.png';
 import vueJSImg from './images/tech_stack/Vue.js_Logo_2.svg.png';
 import htmlImg from './images/tech_stack/HTML5.png';
 import cssImg from './images/tech_stack/CSS3.png';
+import viteImg from './images/tech_stack/Vitejs-logo.svg'
 import portfolioImg from './images/portfolio-thumb.png';
 import githubImg from "./images/github.png";
 import newTabImg from "./images/newTab.png";
@@ -21,19 +22,19 @@ const roles = [
     {
         image: frontEndDevImg,
         name: "Front-end developer",
-        description: "I have had hands-on experience of 3.5 years in web development. My expertise includes developing dynamic websites with vanilla javascript, scalable and single-page applications using JavaScript frameworks such as ReactJS, Angular and VueJS. My abilities includes building applications with responsiveness, mobile first, SEO optimized and high performance. I also expertized in working with various APIS such as REST or GraphQL.",
+        description: "I have had hands-on experience of 5+ years in web development. My expertise includes developing dynamic websites with vanilla javascript, scalable and single-page applications using JavaScript frameworks such as ReactJS, Angular and VueJS. My abilities includes building applications with responsiveness, mobile first, SEO optimized and high performance. I also expertized in working with various API architectures such as REST or GraphQL.",
         link: null,
     },
     {
         image: nodeJSDevImg,
         name: "Node.js developer",
-        description: "I am well open to backend development as well with over 2 years of experience. I worked on  Node.js prpjects where I build simple yet scalable backend applications. I leveraged the advantage of using serverside capabilities of JavaScript with various backend technologies such as Express.js, Socket.io and Graphql Server, SQL and MongoDB.",
+        description: "I got 5+ years of experience in building applications with Node.js and databases such as MySQL or MongoDB. My work includes building simple and scalable applications to complex applications. I leveraged the advantage of using serverside capabilities of JavaScript with various technologies such as Express.js, Socket.io and Graphql Server, SQL and MongoDB.",
         link: null,
     },
     {
         image: techEnthusiastImg,
         name: "DataBase Engineer",
-        description: "As a skilled database developer, I specialize in designing, developing, and optimizing robust database solutions that drive business success. With expertise in database architecture, query optimization, and data modeling, I deliver scalable and efficient systems tailored to meet diverse business needs. I have expertise working on SQL and NoSQL databases such as MySQL, PostgreSQL, MS SQL Server and MongoDB",
+        description: "As a skilled database developer, I specialize in designing, developing, and optimizing robust database solutions that drive business success. With expertise in database architecture, query optimization, and data modeling, I deliver scalable and efficient systems tailored to meet diverse business needs. I have expertise working on SQL and NoSQL databases such as MySQL, PostgreSQL, MS SQL Server and MongoDB.",
         link: null,
     },
 ];
@@ -120,6 +121,10 @@ const projects = [
             {
                 name: 'CSS',
                 image: cssImg,
+            },
+            {
+                name: 'Vite',
+                image: viteImg,
             }
         ]
     }
@@ -180,32 +185,52 @@ const renderTech = function (tech){
 
 const experience = [
     {
+        type: 'work',
+        year: "Jan, 2024",
+        end: "Dec, 2024",
+        title: 'Full Stack Engineer (Internship)',
+        location: 'BigLynx Inc, Bellevue, Washington, USA',
+        desc: "As a Full Stack Engineer Intern, I developed a customizable portal integrated with Dynamics 365 CRM using React.js, Node.js, and MySQL Server. Designed interactive Power BI dashboards for real-time data visualization and built a scalable e-commerce platform with microservices architecture. Collaborated with cross-functional teams to create intuitive UI designs and writing test cases to ensure stable and efficient deployments."
+    },
+    {
+        type: 'work',
+        year: "Jan, 2023",
+        end: "Dec, 2023",
+        title: 'IT support Engineer (Part-time)',
+        location: 'Central Michigan University, Mt. Pleasant, MI, USA',
+        desc: "Designed, developed, and supported university’s website using Figma, React.js, Node.js, and MySQL, ensuring scalability, accessibility, and a seamless user experience. Collaborated with department chairs to gather requirements and deliver tailored web solutions, including an administrator portal integrated with Tableau dashboards for data visualization."
+    },
+    {
         type: 'edu',
-        year: 2023,
+        year: "Jan, 2023",
+        end: "Dec, 2024",
         title: 'Masters in Information Systems',
-        location: 'CMU, Mt. Pleasant, MI, USA',
-        desc: "I'm pursuing my master's in Information systems at Central Michigan University aligning my interests in business systems, data analytics, and database administration. "
+        location: 'Central Michigan University, Mt. Pleasant, MI, USA',
+        desc: "I'm pursuing my master's in Information systems at Central Michigan University aligning my interests in business systems, data analytics, and database administration."
     },
     {
         type: 'work',
-        year: 2021,
-        title: 'Web Developer',
-        location: 'ACS Solutions, Hyderabad, India',
-        desc: "As a web developer I worked on various real time web applications such as Nutrascriptives Direct and Fulfillment",
+        year: "Aug, 2021",
+        end: "Dec, 2022",
+        title: 'Web Developer (Full-time)',
+        location: 'Innova Solutions, Hyderabad, India',
+        desc: "As a web developer I worked on various real time web applications such as Nutrascriptives Direct, Order Fulfillment Portal and Internal Blog Portal for Innova Solutions. I also worked as technical interview panel at Innova Solutions",
     },
     {
         type: 'work',
-        year: 2020,
-        title: 'Associate Web Developer',
-        location: 'ACS Solutions, Hyderabad, India',
-        desc: "As an associate web developer I worked on various real time web applications such as Nutrascriptives Direct and Fulfillment",
+        year: "Dec, 2019",
+        end: "Aug, 2021",
+        title: 'Associate Web Developer (Full-time)',
+        location: 'Innova Solutions (Formerly ACS Solutions), Hyderabad, India',
+        desc: "As an associate web developer I worked on various real time web applications such as Nutrascriptives Direct and Order Fulfillment Portal for administrators",
     },
     {
         type: 'edu',
         year: 2016,
+        end: 2020,
         title: 'Bachelors in Electronics and Communication Eng',
         location: 'K L University, Vijayawada, India',
-        desc: 'I completed my bachelors from 2016-2020 at KLUniversity in Electronics and Communication Engineering and got placed in ACS Solutions as a Web developer.'
+        desc: 'I completed my bachelors at KLUniversity in Electronics and Communication Engineering and got placed in ACS Solutions as a Web developer.'
     }
 ]
 
@@ -215,14 +240,14 @@ function renderExperience(experiences = []){
         <div class="phase">
             <div class="phase-inner">
                 <div class="role-tenure">
-                    <span class="year">${exp.year + (!i ? ' - present':'')}</span>
+                    <span class="year">${exp.year + (!i && !exp.year ? ' - present': exp.end ? ` - ${exp.end}` : "" )}</span>
                     <span class="material-symbols-outlined role-icon">${exp.type==='edu' ? 'school' : 'work'}</span>
                 </div>
                 <div class="job-desc">
                     <h3 class="role-name">${exp.title}</h3>
-                    <div>${exp.location}</div>
+                    <div class="role-site">${exp.location}</div>
                     <p>${exp.desc}</p>
-                    <span class="year">${exp.year + (!i ? ' - present':'')}</span>
+                    <span class="year">${exp.year + (!i && !exp.year ? ' - present': exp.end ? ` - ${exp.end}` : "" )}</span>
                 </div>
             </div>
         </div>`
