@@ -186,6 +186,13 @@ const renderTech = function (tech){
 const experience = [
     {
         type: 'work',
+        year: "Dec, 2024",
+        title: 'Freelance Software Developer (Self-employed, Open to Opportunities)',
+        location: 'On-site',
+        desc: "As a Freelance Software Developer, I designed and developed a web-based university management system using Node.js and MySQL. Implemented responsive UI designs with Bootstrap and created secure, role-based access controls to ensure data integrity. Additionally, I optimized database performance and developed interactive dashboards for real-time academic tracking, delivering a tailored product for university management."
+    },
+    {
+        type: 'work',
         year: "Jan, 2024",
         end: "Nov, 2024",
         title: 'Full Stack Engineer (Internship)',
@@ -240,14 +247,14 @@ function renderExperience(experiences = []){
         <div class="phase">
             <div class="phase-inner">
                 <div class="role-tenure">
-                    <span class="year">${exp.year + (!i && !exp.year ? ' - present': exp.end ? ` - ${exp.end}` : "" )}</span>
+                    <span class="year">${exp.year + (!i && !exp.end ? ' - present': exp.end ? ` - ${exp.end}` : "" )}</span>
                     <span class="material-symbols-outlined role-icon">${exp.type==='edu' ? 'school' : 'work'}</span>
                 </div>
                 <div class="job-desc">
                     <h3 class="role-name">${exp.title}</h3>
                     <div class="role-site">${exp.location}</div>
                     <p>${exp.desc}</p>
-                    <span class="year">${exp.year + (!i && !exp.year ? ' - present': exp.end ? ` - ${exp.end}` : "" )}</span>
+                    <span class="year">${exp.year + (!i && !exp.end ? ' - present': exp.end ? ` - ${exp.end}` : "" )}</span>
                 </div>
             </div>
         </div>`

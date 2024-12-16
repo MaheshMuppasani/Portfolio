@@ -560,6 +560,7 @@ button.theme .material-symbols-outlined{
   border-radius: 10px;
   position: relative;
   background: var(--cards-background);
+  box-shadow: 0 0 5px var(--card-shadow);
 }
 .job-desc::after{
   content: "";
