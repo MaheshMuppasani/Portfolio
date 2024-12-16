@@ -187,7 +187,7 @@ const experience = [
     {
         type: 'work',
         year: "Jan, 2024",
-        end: "Dec, 2024",
+        end: "Nov, 2024",
         title: 'Full Stack Engineer (Internship)',
         location: 'BigLynx Inc, Bellevue, Washington, USA',
         desc: "As a Full Stack Engineer Intern, I developed a customizable portal integrated with Dynamics 365 CRM using React.js, Node.js, and MySQL Server. Designed interactive Power BI dashboards for real-time data visualization and built a scalable e-commerce platform with microservices architecture. Collaborated with cross-functional teams to create intuitive UI designs and writing test cases to ensure stable and efficient deployments."
