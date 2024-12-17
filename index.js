@@ -17,6 +17,7 @@ import portfolioImg from './images/portfolio-thumb.png';
 import githubImg from "./images/github.png";
 import newTabImg from "./images/newTab.png";
 
+// const summary = "A results-driven IT professional with 5 years of experience in full-stack development, database management, and data visualization. Proficient in technologies like Node.js, React.js, and MySQL, with a strong track record of delivering scalable and user-friendly applications. Skilled in collaborating with cross-functional teams, optimizing system performance, and driving data-driven decision-making through analytical tools like Power BI and Tableau.";
 
 const roles = [
     {
