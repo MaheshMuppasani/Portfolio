@@ -187,7 +187,7 @@ html{
   padding: 2rem;
 }
 .introduction{
-  margin: 3rem 0 1rem 0;
+  margin: 1rem 0 0 0;
 }
 
 .hero-img {
@@ -350,19 +350,37 @@ button.theme .material-symbols-outlined{
   margin-top: 1rem;
 }
 .hero-heading .summary-role{
+  display: flex;
   font-size: 2rem;
   color: var(--hero-roles-color);
+  font-family: monospace;
+  letter-spacing: -1px;
+  height: 2rem;
+}
+.hero-heading .summary-role span{
+  margin-right: 10px;
+}
+.role-text{
+  letter-spacing: 1px;
+}
+.brandName{
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+.caret{
+  height: 105%;
+  width: 15px;
+  background-color: var(--hero-roles-color);
 }
 /** sections **/
 
 .section {
   padding: 2rem;
-  margin: 1rem 0;
+  /* margin: 1rem 0 0 0; */
   border-radius: 1rem;
   text-align: center;
-
   display: grid;
-    place-items: center;
+  place-items: center;
 }
 
 .section h1 {
@@ -700,7 +718,7 @@ button.theme .material-symbols-outlined{
   display: flex;
   align-items: stretch;
   gap: 0.5rem;
-  margin-top: 80px;
+  margin-top: 50px;
   flex-wrap: wrap;
 }
 .quick-links a{

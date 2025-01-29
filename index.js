@@ -134,6 +134,7 @@ const projects = [
 const role_container = document.getElementsByClassName('roles')[0];
 const project_container = document.getElementsByClassName('projects')[0];
 const exp_container = document.getElementsByClassName('exp-container')[0];
+let roleIntervalId;
 
 const renderRoles = function (roles) {
     return roles.map(role => {
@@ -265,6 +266,48 @@ function renderExperience(experiences = []){
 const sections = document.getElementsByClassName('section');
 const links = Array.from(document.getElementsByClassName('link'));
 
+function animateRoles() {
+    const roles = ['Full Stack Engineer', 'MERN Stack Engineer', 'MEAN Stack Engineer', 'Web Developer'];
+    const roleContainer = document.getElementsByClassName('role-text')[0];
+    if (!roleContainer) return;
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let typingForward = true;
+
+    roleContainer.innerHTML = "";
+
+    function typeRole() {
+        if (typingForward) {
+            roleContainer.innerHTML = roles[roleIndex].slice(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === roles[roleIndex].length) {
+                typingForward = false;
+                setTimeout(typeRole, 1000);
+                return;
+            }
+        } else {
+            roleContainer.innerHTML = roles[roleIndex].slice(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                typingForward = true;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeRole, 100);
+                return;
+            }
+        }
+        roleIntervalId = setTimeout(typeRole, 100);
+    }
+
+    typeRole();
+}
+
+function stopAnimateRoles() {
+    clearTimeout(roleIntervalId);
+}
+
+window.addEventListener("beforeunload", stopAnimateRoles);
+
 window.onload = function() {
     role_container.innerHTML = renderRoles(roles).join('');
     project_container.innerHTML = renderProjects(projects).join('');
@@ -277,6 +320,7 @@ window.onload = function() {
     } else{
         document.body.classList.remove('dark');
     }
+    animateRoles();
 }
 
 window.onresize = function(){
