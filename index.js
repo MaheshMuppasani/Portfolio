@@ -1,7 +1,7 @@
 // util function
-import frontEndDevImg from "./images/front-end-developer.png";
-import nodeJSDevImg from "./images/1_bc9pmTiyKR0WNPka2w3e0Q.png";
-import techEnthusiastImg from "./images/tech_enthusiast.png";
+import fullStackDevImg from "./images/front-end-developer.png";
+import volunteerWordCloud from "./images/volunteer2.jpg";
+import databasesBG from "./images/tech_enthusiast.png";
 import reactCalenderImg from './images/react_calender.png';
 import game2048Img from './images/game_2048.png';
 import accelerometerAppImg from './images/accelerometer.png';
@@ -21,21 +21,21 @@ import newTabImg from "./images/newTab.png";
 
 const roles = [
     {
-        image: frontEndDevImg,
-        name: "Front-end developer",
-        description: "I have had hands-on experience of 5+ years in web development. My expertise includes developing dynamic websites with vanilla javascript, scalable and single-page applications using JavaScript frameworks such as ReactJS, Angular and VueJS. My abilities includes building applications with responsiveness, mobile first, SEO optimized and high performance. I also expertized in working with various API architectures such as REST or GraphQL.",
+        image: fullStackDevImg,
+        name: "Full Stack Engineer",
+        description: "I am a Full-Stack Software Engineer with over 5 years of experience in designing and developing scalable applications using Java, Spring Boot, AWS, PostgreSQL, React.js, and Angular. I specialize in microservices, GraphQL APIs, and cloud-based solutions, optimizing system performance, reducing infrastructure costs, and enhancing business automation. My expertise ensures efficient, high-performance applications tailored for seamless business operations.",
         link: null,
     },
     {
-        image: nodeJSDevImg,
-        name: "Node.js developer",
-        description: "I got 5+ years of experience in building applications with Node.js and databases such as MySQL or MongoDB. My work includes building simple and scalable applications to complex applications. I leveraged the advantage of using serverside capabilities of JavaScript with various technologies such as Express.js, Socket.io and Graphql Server, SQL and MongoDB.",
+        image: databasesBG,
+        name: "DataBase Architect",
+        description: "As a database architect, I specialize in designing, developing, and optimizing robust database solutions that drive business success. With expertise in database architecture, query optimization, and data modeling, I deliver scalable and efficient systems tailored to meet diverse business needs. I have expertise working on SQL and NoSQL databases such as MySQL, PostgreSQL, MS SQL Server and MongoDB.",
         link: null,
     },
     {
-        image: techEnthusiastImg,
-        name: "DataBase Engineer",
-        description: "As a skilled database developer, I specialize in designing, developing, and optimizing robust database solutions that drive business success. With expertise in database architecture, query optimization, and data modeling, I deliver scalable and efficient systems tailored to meet diverse business needs. I have expertise working on SQL and NoSQL databases such as MySQL, PostgreSQL, MS SQL Server and MongoDB.",
+        image: volunteerWordCloud,
+        name: "Volunteer",
+        description: "With my passion to work in volunteering, I served as a Front-End Panel Recruiter at Innova Solutions (Aug 2021 - Dec 2022), conducting 100+ technical interviews to streamline hiring with a 30% efficiency gain. Simultaneously, as a Technical Mentor (Aug 2021 - Feb 2022), guided a team of five trainees in JavaScript, React.js, and Angular, leading them to deliver three projects that increased customer revenue by 29%.",
         link: null,
     },
 ];
@@ -59,6 +59,31 @@ const projects = [
             {
                 name: 'Google Firebase',
                 image: firebaseImg,
+            }
+        ]
+    },
+    {
+        name: 'Portfolio',
+        description: "The portfolio is developed from scratch using vanilla JS covering all the essential concepts with some inspiration from the designs on Dribble. The website will be transitioned to a JS framework such as React.JS or Angular in future. This will be fun terraforming an existing JS application with a JS framework and lot of scope to learn new things under the hood.",
+        image: portfolioImg,
+        link: 'https://maheshmuppasani.vercel.app/',
+        repo_link: "https://github.com/MaheshMuppasani/Portfolio/",
+        tech_used: [
+            {
+                name: 'JavaScript',
+                image: JSImg
+            },
+            {
+                name: 'HTML',
+                image: htmlImg
+            },
+            {
+                name: 'CSS',
+                image: cssImg,
+            },
+            {
+                name: 'Vite',
+                image: viteImg,
             }
         ]
     },
@@ -104,31 +129,6 @@ const projects = [
             }
         ]
     },
-    {
-        name: 'Portfolio',
-        description: "The portfolio is developed from scratch using vanilla JS covering all the essential concepts with some inspiration from the designs on Dribble. The website will be transitioned to a JS framework such as React.JS or Angular in future. This will be fun terraforming an existing JS application with a JS framework and lot of scope to learn new things under the hood.",
-        image: portfolioImg,
-        link: 'https://maheshmuppasani.vercel.app/',
-        repo_link: "https://github.com/MaheshMuppasani/Portfolio/",
-        tech_used: [
-            {
-                name: 'JavaScript',
-                image: JSImg
-            },
-            {
-                name: 'HTML',
-                image: htmlImg
-            },
-            {
-                name: 'CSS',
-                image: cssImg,
-            },
-            {
-                name: 'Vite',
-                image: viteImg,
-            }
-        ]
-    }
 ]
 
 const role_container = document.getElementsByClassName('roles')[0];
@@ -191,7 +191,7 @@ const experience = [
         year: "Dec, 2024",
         title: 'Freelance Software Developer (Self-employed, Open to Opportunities)',
         location: 'On-site',
-        desc: "As a Freelance Software Developer, I designed and developed a web-based university management system using Node.js and MySQL. Implemented responsive UI designs with Bootstrap and created secure, role-based access controls to ensure data integrity. Additionally, I optimized database performance and developed interactive dashboards for real-time academic tracking, delivering a tailored product for university management."
+        desc: "As a Freelance Software Developer, I designed and developed a robust University Management System using Java, Spring Boot and MySQL. Implemented responsive client with React.js and created secure, role-based access controls to ensure data integrity. Additionally, I optimized database performance and developed interactive dashboards for real-time academic tracking, delivering a tailored product for university management."
     },
     {
         type: 'work',
@@ -199,7 +199,7 @@ const experience = [
         end: "Nov, 2024",
         title: 'Full Stack Engineer (Internship)',
         location: 'BigLynx Inc, Bellevue, Washington, USA',
-        desc: "As a Full Stack Engineer Intern, I developed a customizable portal integrated with Dynamics 365 CRM using React.js, Node.js, and MySQL Server. Designed interactive Power BI dashboards for real-time data visualization and built a scalable e-commerce platform with microservices architecture. Collaborated with cross-functional teams to create intuitive UI designs and writing test cases to ensure stable and efficient deployments."
+        desc: "As a Full Stack Engineer Intern, I developed a scalable CRM portal leveraging Java, Spring Boot, PostgreSQL, Apollo GraphQL, and React.js. Designed interactive Power BI dashboards for real-time insights on sales performance and customer trends. Developed microservice architecture using Spring Cloud and PostgreSQL, resulted in improved system latency and consistent uptime of 99.9%."
     },
     {
         type: 'work',
@@ -207,7 +207,7 @@ const experience = [
         end: "Dec, 2023",
         title: 'IT support Engineer (Part-time)',
         location: 'Central Michigan University, Mt. Pleasant, MI, USA',
-        desc: "Designed, developed, and supported university’s website using Figma, React.js, Node.js, and MySQL, ensuring scalability, accessibility, and a seamless user experience. Collaborated with department chairs to gather requirements and deliver tailored web solutions, including an administrator portal integrated with Tableau dashboards for data visualization."
+        desc: "Leveraged AWS Lambda and CloudWatch Logs to enhance ETL processes for the university’s website, improving scalability and reducing latency by 60% to support 10,000+ concurrent users. Integrated Tableau UI into the admin dashboard for real-time enrollment trend visualization, boosting data accessibility, enabling data-driven decisions, and reducing reporting time by 30%."
     },
     {
         type: 'edu',
@@ -215,7 +215,7 @@ const experience = [
         end: "Dec, 2024",
         title: 'Masters in Information Systems',
         location: 'Central Michigan University, Mt. Pleasant, MI, USA',
-        desc: "I'm pursuing my master's in Information systems at Central Michigan University aligning my interests in business systems, data analytics, and database administration."
+        desc: "I've pursued Master's in Information systems at Central Michigan University aligning my interests in business systems, data analytics, and database administration."
     },
     {
         type: 'work',
@@ -267,7 +267,7 @@ const sections = document.getElementsByClassName('section');
 const links = Array.from(document.getElementsByClassName('link'));
 
 function animateRoles() {
-    const roles = ['Full Stack Engineer', 'MERN Stack Engineer', 'MEAN Stack Engineer', 'Web Developer'];
+    const roles = ['Full Stack Engineer', 'Web Developer', 'Database Architect'];
     const roleContainer = document.getElementsByClassName('role-text')[0];
     if (!roleContainer) return;
 
