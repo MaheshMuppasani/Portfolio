@@ -325,8 +325,10 @@ window.onload = function() {
     } else{
         document.body.classList.remove('dark');
     }
-    animateRoles();
-    setTimeout(toggleLoader, 500)
+    setTimeout(() => {
+        toggleLoader();
+        animateRoles();
+    }, 500);
 }
 
 window.onresize = function(){
