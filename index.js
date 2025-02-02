@@ -134,6 +134,7 @@ const projects = [
 const role_container = document.getElementsByClassName('roles')[0];
 const project_container = document.getElementsByClassName('projects')[0];
 const exp_container = document.getElementsByClassName('exp-container')[0];
+const loader_container = document.getElementsByClassName('loader')[0];
 let roleIntervalId;
 
 const renderRoles = function (roles) {
@@ -308,6 +309,10 @@ function stopAnimateRoles() {
 
 window.addEventListener("beforeunload", stopAnimateRoles);
 
+function toggleLoader(){
+    loader_container.classList.toggle('on');
+}
+
 window.onload = function() {
     role_container.innerHTML = renderRoles(roles).join('');
     project_container.innerHTML = renderProjects(projects).join('');
@@ -321,6 +326,7 @@ window.onload = function() {
         document.body.classList.remove('dark');
     }
     animateRoles();
+    setTimeout(toggleLoader, 500)
 }
 
 window.onresize = function(){
