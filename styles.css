@@ -95,7 +95,9 @@ hr {
   display: none;
 }
 .loader.on{
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-self: center;
 }
 .spinner {
   width: 50px;
