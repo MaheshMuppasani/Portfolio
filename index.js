@@ -3,6 +3,7 @@ import fullStackDevImg from "./images/front-end-developer.png";
 import volunteerWordCloud from "./images/volunteer2.jpg";
 import databasesBG from "./images/tech_enthusiast.png";
 import reactCalenderImg from './images/react_calender.png';
+import UMS from './images/UMS.png';
 import game2048Img from './images/game_2048.png';
 import accelerometerAppImg from './images/accelerometer.png';
 import reactJSImg from './images/tech_stack/react-1-logo-png-transparent.png';
@@ -12,7 +13,11 @@ import JSImg from './images/tech_stack/JavaScript-logo.png';
 import vueJSImg from './images/tech_stack/Vue.js_Logo_2.svg.png';
 import htmlImg from './images/tech_stack/HTML5.png';
 import cssImg from './images/tech_stack/CSS3.png';
-import viteImg from './images/tech_stack/Vitejs-logo.svg'
+import viteImg from './images/tech_stack/Vitejs-logo.svg';
+import nodeJS from './images/tech_stack/node-js-icon-1901x2048-mk1e13df.png';
+import MySQL from './images/tech_stack/mysql-6.svg';
+import ChartJS from './images/tech_stack/Chart.js_logo.svg.png';
+import ExpressJS from './images/tech_stack/express.png';
 import portfolioImg from './images/portfolio-thumb.png';
 import githubImg from "./images/github.png";
 import newTabImg from "./images/newTab.png";
@@ -41,6 +46,39 @@ const roles = [
 ];
 
 const projects = [
+    {
+        name: 'University Management System',
+        description: 'Developed a University Management System to streamline student enrollment, course management, faculty administration, attendance tracking, grading, and finance management. The system improves efficiency, ensures data accuracy, and provides a user-friendly dashboard for administrators, faculty, and students to manage academic and administrative tasks seamlessly.',
+        image: UMS,
+        link: 'https://um-client.vercel.app/',
+        repo_link: 'https://github.com/MaheshMuppasani/UM-Server', 
+        tech_used: [
+            {
+                name: 'NodeJS',
+                image: nodeJS
+            },
+            {
+                name: 'Express',
+                image: ExpressJS
+            },
+            {
+                name: 'MySQL',
+                image: MySQL,
+            },
+            {
+                name: 'ReactJS',
+                image: reactJSImg,
+            },
+            {
+                name: 'ChartJS',
+                image: ChartJS,
+            },
+            {
+                name: 'Bootstrap',
+                image: bootstrapImg,
+            },
+        ]
+    },
     {
         name: 'Perosnal Calender',
         description: 'Introducing a sleek and intuitive personal calendar application crafted with React.js, JavaScript, and Bootstrap, inspired by the user-friendly design of Microsoft Calendar. This modern, clean application simplifies event organization, and reminder setting. It combines advanced web technologies with a design reminiscent of Microsoft Calendar, enhancing scheduling experience.',
